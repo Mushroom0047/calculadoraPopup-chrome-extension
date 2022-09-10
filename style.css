@@ -1,6 +1,6 @@
 body{
     background-color: #333333;
-    height: 430px;
+    height: 400px;
     padding: 5px;
     width: 300px;
 }
@@ -13,6 +13,10 @@ button{
     width: 50px;
     box-shadow: 5px 5px 4px #000;
     cursor: pointer;
+}
+#clear{
+    background-color: #aa1818;
+    color: #fff
 }
 
 .title{
