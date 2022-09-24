@@ -43,10 +43,13 @@ button{
     width: 100%;
     margin-bottom: 15px;
 }
-.result__input{
+input[type="text"]:disabled {
     width: 70%;
     height: 30px;
-}
+    font-size: 18px;
+    color: #000;
+    background: #ddd;
+  }
 .result__c{
     width: 30%;
     display: flex;

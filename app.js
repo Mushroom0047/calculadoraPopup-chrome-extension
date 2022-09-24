@@ -43,16 +43,26 @@ clearButton.addEventListener('click', clear);
 sectionButtons.addEventListener('click', (e) => {
   e.stopPropagation();
 
-  if(e.target.id != '' && result == ''){
+  console.log('--------------------------')
+  console.log('fv = ' + firstValue);
+  console.log('lv = ' + lastValue);
+  console.log('res = ' + result);
+  console.log('ope = ' + operator);
+
+  if(e.target.id != ''){
+    if(result != ''){
+      firstValue = result;
+      result = '';
+    }
     inputValue += e.target.textContent;
   }
 
   if(e.target.id == '+' ||e.target.id == '-' ||e.target.id == '*' ||e.target.id == '/'){
     operator = e.target.id;
+    firstValue = inputValue.substring(0,inputValue.indexOf(operator));
   }
 
   if(e.target.id == '='){
-    firstValue = inputValue.substring(0,inputValue.indexOf(operator))
     lastValue = inputValue.substring(inputValue.indexOf(operator)+1, inputValue.length-1)
 
     result = calculateResult(firstValue, lastValue, operator);
