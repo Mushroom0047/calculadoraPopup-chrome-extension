@@ -26,6 +26,7 @@ const calculateResult = (a, b, c) => {
       res = parseFloat(a)/parseFloat(b);
       break;
   }
+  firstValue = res;
   return res;
 }
 const clear = () => {
@@ -55,15 +56,18 @@ sectionButtons.addEventListener('click', (e) => {
     if(firstValue != '' && lastValue != ''){
       result = calculateResult(firstValue, lastValue, operator);
       inputValue = result;
+    }else{
+      operator = e.target.id;
     }
-    operator = e.target.id;
   }else{
+    console.log('otro boton')
     if(operator == ""){
       firstValue += e.target.id;
       console.log('first value',firstValue)
     }else{
-      lastValue += e.target.value;
-      console.log(lastValue)
+      lastValue += e.target.id;
+      console.log('last value',lastValue)
+      
     }
   }
 
