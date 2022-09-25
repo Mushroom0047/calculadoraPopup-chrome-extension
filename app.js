@@ -43,12 +43,6 @@ clearButton.addEventListener('click', clear);
 sectionButtons.addEventListener('click', (e) => {
   e.stopPropagation();
 
-  console.log('--------------------------')
-  console.log('fv = ' + firstValue);
-  console.log('lv = ' + lastValue);
-  console.log('res = ' + result);
-  console.log('ope = ' + operator);
-
   if(e.target.id != ''){
     if(result != ''){
       firstValue = result;
@@ -58,8 +52,19 @@ sectionButtons.addEventListener('click', (e) => {
   }
 
   if(e.target.id == '+' ||e.target.id == '-' ||e.target.id == '*' ||e.target.id == '/'){
+    if(firstValue != '' && lastValue != ''){
+      result = calculateResult(firstValue, lastValue, operator);
+      inputValue = result;
+    }
     operator = e.target.id;
-    firstValue = inputValue.substring(0,inputValue.indexOf(operator));
+  }else{
+    if(operator == ""){
+      firstValue += e.target.id;
+      console.log('first value',firstValue)
+    }else{
+      lastValue += e.target.value;
+      console.log(lastValue)
+    }
   }
 
   if(e.target.id == '='){
@@ -67,6 +72,7 @@ sectionButtons.addEventListener('click', (e) => {
 
     result = calculateResult(firstValue, lastValue, operator);
     inputValue = result;
+    operator = '';
   }
 
   //Mostrar los numeros
